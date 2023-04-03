@@ -1,11 +1,18 @@
-import { NativeBaseProvider, Box, Text } from 'native-base';
+import { NativeBaseProvider, Box, Text, Flex, Center, StatusBar, VStack } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native';
+import { ActivityIndicator } from 'react-native';
+import Login from './Application/Screens/Auth/Login';
+import BottomTabNavigator from './Application/Navigation/BottomNaviagation';
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <Box flex={1} alignSelf='center' justifyContent='center'>
-        <Text fontSize='lg'>Expo with NativeBase</Text>
-      </Box>
-    </NativeBaseProvider>
+    <NavigationContainer>
+      <NativeBaseProvider>
+        <StatusBar backgroundColor={'#EA712D'} />
+        <VStack flex={'1'}>
+          <BottomTabNavigator />
+        </VStack>
+      </NativeBaseProvider>
+    </NavigationContainer>
   );
 }
