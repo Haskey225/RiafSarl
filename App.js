@@ -9,7 +9,7 @@ export default function App() {
     <NavigationContainer>
       <NativeBaseProvider>
         <StatusBar backgroundColor={'#EA712D'} />
-        <VStack flex={'1'}>
+        <VStack flex={'1'} alignContent={'center'}>
           <BottomTabNavigator />
         </VStack>
       </NativeBaseProvider>
