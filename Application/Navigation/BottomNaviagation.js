@@ -34,7 +34,7 @@ export default function BottomTabNavigator(props) {
                 }}
             />
 
-<Tab.Screen
+            <Tab.Screen
                 name='Exchange'
                 component={Login}
                 options={{
@@ -66,7 +66,7 @@ export default function BottomTabNavigator(props) {
                     )
                 }}
             />
-           
+
         </Tab.Navigator>
     )
 }

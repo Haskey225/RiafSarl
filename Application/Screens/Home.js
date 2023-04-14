@@ -1,16 +1,50 @@
 import React from 'react';
-import { Box, Center, Text } from 'native-base';
-import Video from 'react-native-video';
-import { ProductCard } from '../Component/Cards/Product';
+import { Box, Center, Heading, Text, HStack, Button, VStack, ScrollView } from 'native-base';
 
 export default function Home(props) {
 
     return (
-        <Center
-            flex='1'
-            px={5}
-        >
-            <ProductCard />
-        </Center>
+        <VStack space={5} m={0}>
+            <ScrollView
+            pt={3}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+            >
+                <Center
+                    px={5}
+                >
+                    <Center
+                        borderWidth={1}
+                        borderRadius={5}
+                        borderColor={'orange.500'}
+                        height={'150px'}
+                        width={'100%'}
+                        _text={{
+                            color: 'coolGray.400',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        <Text>Solde disponible</Text>
+                        <Heading>0.00 CFA</Heading>
+                    </Center>
+                </Center>
+                <Center flexDirection={'row'}>
+                    <Center>
+                        <Button>Charge</Button>
+                    </Center>
+                    <Center>
+                        <Button>Charge</Button>
+                    </Center>
+                </Center>
+                <VStack >
+                    <Center>
+                        <Heading>Derniere transaction</Heading>
+                        <Text>Vous n'avez aucune transaction encienne.</Text>
+
+                    </Center>
+                </VStack>
+            </ScrollView>
+
+        </VStack>
     )
 }
