@@ -1,5 +1,6 @@
-import React from 'react';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from '../Screens/Home';
 import Login from '../Screens/Auth/Login';
@@ -8,7 +9,7 @@ import Notification from '../Screens/Notification';
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomTabNavigator(props) {
+export function BottomTabNavigator(props) {
 
     return (
         <Tab.Navigator
