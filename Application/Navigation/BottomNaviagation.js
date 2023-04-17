@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,7 +7,14 @@ import Login from '../Screens/Auth/Login';
 import Notification from '../Screens/Notification';
 
 
+import MerchantHome from '../Screens/MerchantHome';
+import Setting from '../Screens/MScreens/Setting';
+import Withdraw from '../Screens/MScreens/Withdraw';
+import Airtime from '../Screens/MScreens/Airtime';
+
+
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export function BottomTabNavigator(props) {
 
@@ -69,5 +76,24 @@ export function BottomTabNavigator(props) {
             />
 
         </Tab.Navigator>
+    )
+}
+export function StackNavigation(props) {
+
+    return (
+        <Stack.Navigator
+            initialRouteName='home'
+        >
+            <Stack.Screen
+                options={{
+                    headerShown: false
+                }}
+                name='Home'
+                component={MerchantHome}
+            />
+            <Stack.Screen name='Paramettre' component={Setting} />
+            <Stack.Screen name='Airtime' component={Airtime} />
+            <Stack.Screen name='Retrait' component={Withdraw} />
+        </Stack.Navigator>
     )
 }

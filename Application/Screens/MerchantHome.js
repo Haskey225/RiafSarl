@@ -1,14 +1,27 @@
 import React, { Component } from "react";
-import { Box, Button, Center, HStack, Heading, ScrollView, Text, Pressable } from "native-base";
+import { Box, Button, Center, HStack, Heading, ScrollView, Text, Pressable, Image } from "native-base";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class MerchantHome extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSoldeShowed: false
+        }
+    }
 
     _handlePress = () => {
         console.log('Pressed');
     }
 
+    _soldeSwhow = async (vals) => {
+        this.setState({ isSoldeShowed: vals });
+    }
+
     render() {
+
+        const { navigation } = this.props;
 
         return (
             <Box
@@ -18,30 +31,61 @@ export default class MerchantHome extends Component {
                 <Box
                     p={5}
                 >
-                    <Icon name='cog' size={20} color={'black'} />
+                    <Pressable
+                        onPress={() => navigation.navigate('Paramettre')}
+                        bg={'#EA712D'}
+                        _pressed={{
+                            bg: '#EA712D'
+                        }}
+                    >
+                        <Icon name='cog' size={20} color={'white'} />
+                    </Pressable>
+
                 </Box>
                 <Box
-                    pt={5}
+                    pt={3}
                     zIndex={10}
                 >
                     <Center>
-                        <Heading>250 000 F CFA</Heading>
+                        <HStack
+                            alignItems={'center'}
+                            space={'xs'}
+                        >
+                            <Heading color={'white'} fontSize={'2xl'}>{this.state.isSoldeShowed ? '*********' : '250.000'} CFA </Heading>
+                            <Button
+                                onPress={() => this._soldeSwhow(!this.state.isSoldeShowed)}
+                                bg={'#EA712D'}
+                                _pressed={{
+                                    bg: '#EA712D'
+                                }}
+                            >
+                                <Icon name={this.state.isSoldeShowed ? 'eye' : 'eye-slash'} color='white' size={15} />
+                            </Button>
+                        </HStack>
                         <Box
                             minHeight={'100px'}
                         >
-                            <Box
-                                p={10}
+                            <Center
+                                px={10}
+                                py={2}
                                 alignSelf={'center'}
-                                bg={'blue.400'}
+                                bg={'orange.400'}
                                 position={'absolute'}
                                 minWidth={'70%'}
+                                maxHeight={'100px'}
                                 borderRadius={'2xl'}
                                 top={10}
 
 
                             >
-                                <Text textAlign={'center'}>QR CODE</Text>
-                            </Box>
+                                <Image 
+                                resizeMode="cover"
+                                borderWidth={5}
+                                borderColor={'orange.900'}
+                                source={{
+                                    uri: "https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fwww.twitter.com%2fTECIT"
+                                }} alt="Alternate Text" size={'md'} />
+                            </Center>
                         </Box>
                     </Center>
                 </Box>
@@ -49,7 +93,7 @@ export default class MerchantHome extends Component {
                     borderWidth={'1px'}
                     borderColor={'white'}
                     borderTopRadius={'3xl'}
-                    pt={20}
+                    pt={18}
                     borderBottomWidth={1}
                     bg={'coolGray.200'}
                     borderBottomColor={'coolGray.500'}
@@ -61,6 +105,7 @@ export default class MerchantHome extends Component {
                         justifyContent={'space-around'}
                         px={5}
                         pb={4}
+                        pt={5}
 
                     >
 
@@ -71,7 +116,7 @@ export default class MerchantHome extends Component {
                                 _pressed={{
                                     bg: 'coolGray.200'
                                 }}
-                                onPress={this._handlePress}
+                                onPress={() => navigation.navigate('Retrait')}
                             >
                                 <Icon name='arrow-down' size={20} color='#FC5603' />
                             </Button>
@@ -84,7 +129,7 @@ export default class MerchantHome extends Component {
                                 _pressed={{
                                     bg: 'coolGray.200'
                                 }}
-                                onPress={this._handlePress}
+                                onPress={() => navigation.navigate('Airtime')}
                             >
                                 <Icon name='mobile' size={20} color='#FC5603' />
                             </Button>
@@ -102,7 +147,7 @@ export default class MerchantHome extends Component {
                         showsVerticalScrollIndicator={false}
                         px={10}
                     >
-                        <Text>Transaction</Text>
+                        <Text>Transaction 03-05-2022  20 000 CFA</Text>
                         <Text>Transaction</Text>
                         <Text>Transaction</Text>
                         <Text>Transaction</Text>
