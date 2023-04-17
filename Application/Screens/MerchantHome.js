@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Box, Button, Center, HStack, Heading, ScrollView, Text, Pressable, Image } from "native-base";
+import {AsyncStorage} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class MerchantHome extends Component {
