@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Center, Heading, Text, HStack, Button, VStack, ScrollView } from 'native-base';
+import { UserContext } from '../Context/Users/UserContext';
 
 export default function Home(props) {
+
+    const { isLogged, setIsLogged } = useContext(UserContext);
+
+    const toggle = () => {
+        setIsLogged(false);
+
+        setTimeout(()=>{
+            setIsLogged(true);
+        }, 5000)
+    }
 
     return (
         <VStack space={5} m={0}>
             <ScrollView
-            pt={3}
+                pt={3}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
             >
@@ -30,7 +41,7 @@ export default function Home(props) {
                 </Center>
                 <Center flexDirection={'row'}>
                     <Center>
-                        <Button>Charge</Button>
+                        <Button onPress={toggle()}>Charge</Button>
                     </Center>
                     <Center>
                         <Button>Charge</Button>

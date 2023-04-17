@@ -190,7 +190,7 @@ export function SignInForm({ props }) {
                   props.navigation.navigate("OTP");
                 }}
               >
-                SIGN IN
+                CONNEXION
               </Button>
               <HStack
                 mt="5"
